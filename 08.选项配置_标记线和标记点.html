@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>08.选项配置_标记线和标记点</title>
+</head>
+<body>
+<!--
+  标记线：markLine
+  标记点：markPoint
+    标记线的添加,在series中添加
+    最大值，平均值，最小值的标记线
+-->
+
+<div id="main" style="width: 600px;height:400px;"></div>
+
+<script src="js/echarts.js"></script>
+<script type="text/javascript">
+  var myChart = echarts.init(document.getElementById('main'));
+
+  var option = {
+
+    series: [{
+      name: '前端课程',
+      type: 'line',
+      data: [5, 10, 10, 10, 35, 15],
+      //标记点
+      markPoint: {
+        data: [
+          {type: 'max', name: '最大值'},
+          {type: 'min', name: '最小值'}
+        ]
+      },
+      //标记线
+      markLine: {
+        data: [
+          {type: 'average', name: '平均值'}
+        ]
+      }
+    }],
+
+    title: {
+      text: 'ECharts 入门示例'
+    },
+    tooltip: {},
+    legend: {
+      data: ['前端课程']
+    },
+    xAxis: {
+      data: ["HTML", "css", "Node", "JS基础",'JS框架', "移动端"]
+    },
+    yAxis: {}
+  };
+
+  myChart.setOption(option);
+</script>
+
+</body>
+</html>

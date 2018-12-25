@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>07.选项配置_提示框</title>
+</head>
+<body>
+<!--
+    提示框：tooltip
+        show:是否显示
+        trigger:出发方式，axis就是X轴出发
+-->
+
+<div id="main" style="width: 600px;height:400px;"></div>
+
+<script src="js/echarts.js"></script>
+<script type="text/javascript">
+  var myChart = echarts.init(document.getElementById('main'));
+
+  var option = {
+
+    //提示框
+    tooltip: {
+      show: true,
+      trigger: 'none'   // 'item' 'none'  axis
+    },
+
+    title: {
+      text: '前端课程时间(天)'
+    },
+    legend: {
+      data: ['前端课程']
+    },
+    xAxis: {
+      data: ["HTML", "css", "Node", "JS基础",'JS框架', "移动端"]
+    },
+    yAxis: {},
+    series: [{
+      name: '前端课程',
+      type: 'bar',
+      data: [5, 10, 10, 10, 35, 15]
+    }]
+  };
+
+  myChart.setOption(option);
+</script>
+
+</body>
+</html>

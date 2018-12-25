@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>06.选项配置_工具箱</title>
+</head>
+<body>
+<!--
+    工具箱组件：toolbox
+        负责组件的工具栏
+        feature:具体显示的功能
+        saveAslmage：保存图片
+        restore：还原
+        dataView:数据视图
+        dataZoom:缩放视图
+        magicType:动态数据切换
+-->
+
+<div id="main" style="width: 600px;height:400px;"></div>
+
+<script src="js/echarts.js"></script>
+<script type="text/javascript">
+  var myChart = echarts.init(document.getElementById('main'));
+
+  var option = {
+    //工具箱组件
+    toolbox: {
+      show: true,
+      //具体显示的功能
+      feature: {
+        //数据视图
+        dataView: {
+          show: true
+        },
+        //还原
+        restore: {
+          show: true
+        },
+        //缩放视图
+        dataZoom: {
+          show: true
+        },
+        //保存图片
+        saveAsImage: {
+          show: true
+        },
+        //动态数据切换
+        magicType: {
+          type: ['line', 'bar']
+        }
+      }
+    },
+
+    title: {
+      text: '前端课程时间(天)'
+    },
+    tooltip: {},
+    legend: {
+      data: ['前端课程']
+    },
+    xAxis: {
+      data: ["HTML", "css", "Node", "JS基础",'JS框架', "移动端"]
+    },
+    yAxis: {},
+    series: [{
+      name: '前端课程',
+      type: 'bar',
+      data: [5, 10, 10, 10, 35, 15]
+    }]
+  };
+
+  myChart.setOption(option);
+</script>
+</body>
+</html>
